@@ -1,0 +1,30 @@
+﻿@page
+@model QRCodeGenerator.Web.Pages.Phone.Create
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Create Phone QR code</h2>
+<hr />
+<p>Fill in the form details, click create and a QR Code image will be created for you</p>
+
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            @Html.FormBlock(m => m.Data.Number)
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+            @Html.ValidationDiv()
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="/Index">Back to Home</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
